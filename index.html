@@ -1,5 +1,34 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Deli Espresso | Gantt Lab</title><style>
 :root{font-family:Inter,system-ui,Arial,sans-serif;color:#edf4ee;background:#101411}*{box-sizing:border-box}body{margin:0;padding:26px;max-width:1500px;margin:auto}h1{margin:4px 0;font-size:28px}p{color:#a7b8ac}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}.tag{font:12px monospace;color:#9bb7a5;letter-spacing:2px}.controls,.metrics,.panel{background:#1b221d;border:1px solid #39443a;border-radius:13px;padding:18px;margin-top:18px}.controls{display:flex;flex-wrap:wrap;gap:15px;align-items:end}label{font-size:12px;color:#b7c9bb;display:flex;flex-direction:column;gap:6px}input,select,button{background:#28342c;color:white;border:1px solid #526355;border-radius:7px;padding:9px;font:inherit}input{width:90px}button{cursor:pointer}button:hover{background:#3d5242}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric{background:#28312a;padding:15px;border-radius:9px}.metric b{font-size:26px;display:block;margin-top:5px}.metric small{color:#b7c9bb}.chartwrap{overflow-x:auto}svg{width:100%;min-width:860px;height:auto}.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;color:#becbc0;font-size:13px}.dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px}.foot{font-size:13px;line-height:1.6}.warn{color:#e6c27d}@media(max-width:750px){.metrics{grid-template-columns:repeat(2,1fr)}body{padding:12px}}
+/* LIGHT MODE OVERRIDES */
+
+body {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+header, main, section {
+  color: #1f2937;
+}
+
+input, select, button {
+  background: #ffffff;
+  color: #1f2937;
+  border-color: #cbd5e1;
+}
+
+input:focus, select:focus {
+  border-color: #2563eb;
+}
+
+table {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+th, td {
+  border-color: #e5e7eb;
+}
 </style><header><div><div class="tag">OPERATIONS MANAGEMENT · GROUP 3</div><h1>Espresso Batch Preparation</h1><p>Editable resource-based Gantt chart · illustrative timings</p></div><button id="download">Export schedule CSV</button></header>
 <div class="controls"><label>Batch size<select id="batch"><option value="1">1 shot</option><option value="2">2 shots</option><option value="3" selected>3 shots</option></select></label><label>Take portafilter (s)<input id="take" type="number" min="0" step="1" value="5"></label><label>Grind PF1 (s)<input id="grind" type="number" min="0" step="1" value="8"></label><label>Grind PF2 (s)<input id="grind2" type="number" min="0" step="1" value="7"></label><label>Tamping (s)<input id="tamp" type="number" min="0" step="1" value="6"></label><label>Load (s)<input id="load" type="number" min="0" step="1" value="3"></label><label>Extraction (s)<input id="extract" type="number" min="0" step="1" value="25"></label><label>Cleaning / PF (s)<input id="clean" type="number" min="0" step="1" value="6"></label><button id="reset">Reset example</button></div>
 <div class="metrics"><div class="metric"><small>BATCH COMPLETE</small><b id="batchtime">—</b><small>Including cleaning</small></div><div class="metric"><small>TIME PER SHOT</small><b id="per">—</b><small>Batch time / shots</small></div><div class="metric"><small>LAST EXTRACTION</small><b id="last">—</b><small>All shots prepared</small></div><div class="metric"><small>BARISTA BUSY</small><b id="busy">—</b><small>Share of batch duration</small></div></div>
